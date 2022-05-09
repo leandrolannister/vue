@@ -14,11 +14,11 @@ export default {
     return {
       title:"Tiger 660",
       subTitle:"Triump",
-      data:[{
-        url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3rQF_7DTCAImmw69SlDWKpCABocHMLmwinw&usqp=CAU",
-        alt:"Moto"
-      }]  
+      data:[]  
     }
+  },
+  created(){
+    alert("Welcome to Life Hook")
   }
 }
 </script>
