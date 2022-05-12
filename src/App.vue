@@ -2,24 +2,27 @@
   <div>
     <h1>{{ title }}</h1>
     <h2 v-text="subTitle"></h2>
-    <ul v-for="p in data">
-      <li><img :src="p.url" v-bind:alt="p.alt"></li>
+    <ul v-for="photo in photos">
+      <li><img :src="photo.url" v-bind:alt="photo.alt"></li>
     </ul>
-  </div>
+  </div>  
 </template>
 
 <script>
 export default {
   data(){
-    return {
-      title:"Tiger 660",
-      subTitle:"Triump",
-      data:[]  
+    return{
+      title:"Fotos",
+      subTitle:"Da Internet",
+      photos:[]
     }
   },
   created(){
-    alert("Welcome to Life Hook")
-  }
+    let req = this.$http.get('http://localhost:3000/v1/fotos');
+    req
+    .then(res => res.json())
+    .then(data => this.photos = data, error => console.log(`error:${error}`));  
+  }    
 }
 </script>
 
