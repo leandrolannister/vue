@@ -2,6 +2,9 @@
   <div class="corpo">
     <h1 class="centralizado">{{ title }}</h1>
     <h2 class="centralizado" v-text="subTitle"></h2>
+
+    <input type="text" class="filtro" v-on:input="filtro = $event.target.value" placeholder="Filtrar titulo">
+    {{filtro}}
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="photo in photos">
         <meu-painel :titulo="photo.titulo">        
@@ -24,7 +27,8 @@
       return{
         title:"Fotos",
         subTitle:"Da Internet",
-        photos:[]
+        photos:[],
+        filtro:''
       }
     },
     created(){
