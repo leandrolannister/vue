@@ -47,6 +47,11 @@
      text-align: center;
    }
 
+   .filtro {
+     display: block;
+     width: 100%;
+   }
+
    .lista-fotos {
      list-style: none;
    }
