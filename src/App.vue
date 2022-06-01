@@ -6,7 +6,7 @@
     <input type="text" class="filtro" v-on:input="filtro = $event.target.value" placeholder="Filtrar titulo">
     {{filtro}}
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="photo in photos">
+      <li class="lista-fotos-item" v-for="photo in filterInPhotos">
         <meu-painel :titulo="photo.titulo">        
           <img class="imagem-responsiva" :src="photo.url" v-bind:alt="photo.alt">
         </meu-painel>  
@@ -31,6 +31,17 @@
         filtro:''
       }
     },
+    computed:{
+       filterInPhotos(){
+         if (this.filtro){
+           let exp = new RegExp(this.filtro.trim(), 'i');
+           return this.photos.filter(photo => exp.test(photo.titulo));
+         }else{
+           return this.photos;
+         }  
+       }
+    },
+
     created(){
       let req = this.$http.get('http://localhost:3000/v1/fotos');
       req
