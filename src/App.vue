@@ -3,7 +3,7 @@
     <h1 class="centralizado">{{ title }}</h1>
     <h2 class="centralizado" v-text="subTitle"></h2>
 
-    <input type="text" class="filtro" v-on:input="filtro = $event.target.value" placeholder="Filtrar titulo">
+    <input type="text" class="filtro" @input="filtro = $event.target.value" placeholder="Filtrar titulo">
     {{filtro}}
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="photo in filterInPhotos">
