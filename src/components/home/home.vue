@@ -9,7 +9,7 @@
       <li class="lista-fotos-item" v-for="photo in filterInPhotos">
         <meu-painel :titulo="photo.titulo">     
           <imagem-responsiva :url="photo.url" :titulo="photo.titulo"></imagem-responsiva>            
-          <meu-botao tipo="button" rotulo="REMOVER"/>
+          <meu-botao tipo="button" rotulo="REMOVER"></meu-botao>
         </meu-painel>  
       </li>
     </ul>
