@@ -9,7 +9,7 @@
       <li class="lista-fotos-item" v-for="photo in filterInPhotos">
         <meu-painel :titulo="photo.titulo">     
           <imagem-responsiva :url="photo.url" :titulo="photo.titulo"></imagem-responsiva>            
-          <meu-botao tipo="button" rotulo="REMOVER"></meu-botao>
+          <meu-botao tipo="button" rotulo="REMOVER" @click.native ="remove(photo)"></meu-botao>
         </meu-painel>  
       </li>
     </ul>
@@ -36,6 +36,7 @@
         filtro:''
       }
     },
+
     computed:{
        filterInPhotos(){
          if (this.filtro){
@@ -52,6 +53,14 @@
       req
       .then(res => res.json())
       .then(data => this.photos = data, error => console.log(`error:${error}`));  
+    },
+
+    methods:{
+      remove(photo){
+        if (confirm(`Deseja remover esse elemento, ${photo.titulo}?`)){
+          alert("Remover");
+        }
+      }
     }    
 }
 </script>
