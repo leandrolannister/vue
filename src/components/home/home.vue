@@ -9,7 +9,13 @@
       <li class="lista-fotos-item" v-for="photo in filterInPhotos">
         <meu-painel :titulo="photo.titulo">     
           <imagem-responsiva :url="photo.url" :titulo="photo.titulo"></imagem-responsiva>            
-          <meu-botao tipo="button" rotulo="REMOVER" @click.native ="remove(photo)"></meu-botao>
+          <meu-botao 
+            tipo="button" 
+            rotulo="REMOVER" 
+            :confirmacao="true"
+            estilo='padrao'            
+            @botaoAtivado ="remove(photo)">
+          </meu-botao>
         </meu-painel>  
       </li>
     </ul>
@@ -57,9 +63,7 @@
 
     methods:{
       remove(photo){
-        if (confirm(`Deseja remover esse elemento, ${photo.titulo}?`)){
-          alert("Remover");
-        }
+        alert("Remover");      
       }
     }    
 }
